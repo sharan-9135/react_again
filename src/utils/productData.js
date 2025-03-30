@@ -135,7 +135,7 @@
         "availability": true,
         "brand": "ViewTech",
         "category": "Electronics",
-        "rating": 4.7,
+        "rating":5,
         "reviews": [
             {
                 "user_id": 11,
