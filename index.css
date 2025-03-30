@@ -1,0 +1,40 @@
+.navbar {
+    display: flex;
+    border-bottom: black solid 1px;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+
+}
+
+.navbar>ul>li {
+    margin: 10px;
+    list-style: none;
+}
+
+.product_container {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    height: auto;
+    width: 200px;
+    margin: 10px;
+    border: 0.5px solid black;
+    box-shadow: 10px;
+    width: 200px;
+    padding: 5px;
+    text-align: center;
+
+}
+
+.card>img {
+    width: 200px;
+    height: 200px;
+    margin-top: 2px;
+
+}
