@@ -6,7 +6,7 @@ const Items = ({ itsmychoice }) => {
             <img src={image}></img>
             <h1>{name}</h1>
             <p>price : {price}</p>
-            <p>rating {rating}/5</p>
+            <p>rating {rating.rate}/5</p>
         </div>
     )
 }

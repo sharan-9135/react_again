@@ -1,15 +1,24 @@
-import { useState } from "react"
-import { productData } from "../utils/productData"
+import { useEffect, useState } from "react"
+// import { productData } from "../utils/productData"
 import Items from "./Items"
 
 //  named export.
 export const Product = () => {
-    const [data, setdata] = useState(productData)
+    const [data, setdata] = useState([])
+    useEffect(()=>{
+        fetchDataFromApi();
+    },[]);
+
+    const fetchDataFromApi = async ()=>{
+        const data = await fetch("https://fakestoreapi.com/products");
+        const dataInJsonFormate =  await data.json();
+            setdata(dataInJsonFormate);
+    }
     return (
         <div>
             <button style={{"marginTop":"10px"}} onClick={()=>{
-                const filteredData = productData.filter(product => product.rating >=5)
-                console.log(filteredData)
+                const filteredData = data.filter(product => product.rating.rate >=4)
+                // console.log(filteredData)
                 setdata(filteredData);
             }}>
                 Top Rated Product
@@ -17,7 +26,7 @@ export const Product = () => {
             <div className="product_container">
                 {
                     data.map((product, index) => (
-                        <Items key={index} itsmychoice={product} />
+                        <Items key={index} itsmychoice={product}/>
                     ))
                 }
             </div>
