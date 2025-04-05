@@ -1,36 +1,58 @@
 import { useEffect, useState } from "react"
-// import { productData } from "../utils/productData"
 import Items from "./Items"
+import Skeleton from "./Skeleton";
 
-//  named export.
 export const Product = () => {
-    const [data, setdata] = useState([])
-    useEffect(()=>{
-        fetchDataFromApi();
-    },[]);
+    const [data, setData] = useState([])
+    const [displayData, setDisplayData] = useState([]);
+    const [searchText, setSearchText] = useState("");
 
-    const fetchDataFromApi = async ()=>{
+    useEffect(() => {
+        fetchDataFromApi();
+    }, []);
+
+    const fetchDataFromApi = async () => {
         const data = await fetch("https://fakestoreapi.com/products");
-        const dataInJsonFormate =  await data.json();
-            setdata(dataInJsonFormate);
+        const dataInJsonFormate = await data.json();
+        setData(dataInJsonFormate);
+        setDisplayData(dataInJsonFormate);
     }
-    return (
+
+    const handleSearch = () => {
+        const filtered = data.filter(product => 
+            product.title.toLowerCase().includes(searchText.toLowerCase())
+        );
+        setDisplayData(filtered);
+    }
+
+    const filterTopRated = () => {
+        const filtered = data.filter(product => product.rating.rate >= 4);
+        setDisplayData(filtered);
+    }
+
+    return data.length === 0 ? <Skeleton/> : (
         <div>
-            <button style={{"marginTop":"10px"}} onClick={()=>{
-                const filteredData = data.filter(product => product.rating.rate >=4)
-                // console.log(filteredData)
-                setdata(filteredData);
-            }}>
+            <div style={{ marginTop: "10px" }}>
+                <input 
+                    type="text" 
+                    onChange={(e) => setSearchText(e.target.value)}
+                    value={searchText}
+                />
+                <button onClick={handleSearch}>Search</button>
+            </div>
+
+            <button 
+                style={{ marginTop: "10px" }} 
+                onClick={filterTopRated}
+            >
                 Top Rated Product
             </button>
+            
             <div className="product_container">
-                {
-                    data.map((product, index) => (
-                        <Items key={index} itsmychoice={product}/>
-                    ))
-                }
+                {displayData.map((product, index) => (
+                    <Items key={index} itsmychoice={product} />
+                ))}
             </div>
         </div>
-
     )
 }
