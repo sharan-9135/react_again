@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
     const [btnColor,setbtnColor ] = useState("Light")
@@ -6,9 +7,9 @@ const Navbar = () => {
         <div className="navbar">
             <h1>Ajio</h1>
             <ul className="menu">
-                <li>MEN</li>
-                <li>WOMEN</li>
-                <li>KIDS</li>
+                <li><Link to='/men'>MEN</Link></li>
+                <li><Link to='/Women'>Women</Link></li>
+                <li><Link to='/kid'>KIDS</Link></li>
                 <li>CART</li>
             </ul>
             <button style={{"margin": "10px", "height":"50px","width":"50px"}} 

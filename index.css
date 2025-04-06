@@ -58,3 +58,82 @@
     background-color: #f0f0f0f0;
 
 }
+
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .error-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-title {
+    font-size: 120px;
+    margin: 0;
+    color: #ff6b6b;
+    font-weight: 900;
+  }
+  
+  .error-subtitle {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .error-message {
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  .home-button {
+    padding: 12px 30px;
+    background: #4e44ce;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .home-button:hover {
+    background: #3a2fac;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-illustration {
+    margin-left: 50px;
+  }
+  
+  .error-illustration svg {
+    width: 300px;
+    height: auto;
+    opacity: 0.8;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .error-container {
+      flex-direction: column;
+    }
+    .error-illustration {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+    .error-illustration svg {
+      width: 200px;
+    }
+  }
