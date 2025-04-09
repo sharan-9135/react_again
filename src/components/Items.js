@@ -1,14 +1,23 @@
 const Items = ({ itsmychoice }) => {
-    // console.log(props) // gives ans object.or we can also use.
-    const { image, name, price, rating,title } = itsmychoice
+    const { image, name, price, rating, title } = itsmychoice;
     return (
-        <div className="card">
-            <img src={image}></img>
-            <h3>{title}</h3>
-            <h1>{name}</h1>
-            <p>price : {price}</p>
-            <p>rating {rating.rate}/5</p>
+        <div className="product-card">
+            <div className="product-image-container">
+                <img src={image} alt={title} className="product-image" />
+            </div>
+            <div className="product-details">
+                <h3 className="product-title">{title}</h3>
+                <h2 className="product-name">{name}</h2>
+                <div className="price-rating-container">
+                    <p className="product-price">${price}</p>
+                    <div className="product-rating">
+                        <span className="stars">{"★".repeat(Math.round(rating.rate))}</span>
+                        <span className="rating-text">{rating.rate}/5</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    )
-}
-export default Items; // default export we can only use it once in a file.
+    );
+};
+
+export default Items;

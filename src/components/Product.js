@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Items from "./Items"
 import Skeleton from "./Skeleton";
+import { Link } from "react-router-dom";
 
 export const Product = () => {
     const [data, setData] = useState([])
@@ -49,8 +50,8 @@ export const Product = () => {
             </button>
             
             <div className="product_container">
-                {displayData.map((product, index) => (
-                    <Items key={index} itsmychoice={product} />
+                {displayData.map((product) => (
+                    <Link key={product.id} to={`/product/${product.id}`}><Items  itsmychoice={product} /></Link>
                 ))}
             </div>
         </div>
