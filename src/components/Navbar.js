@@ -10,6 +10,7 @@ const Navbar = () => {
                 <li><Link to='/men'>MEN</Link></li>
                 <li><Link to='/Women'>Women</Link></li>
                 <li><Link to='/kid'>KIDS</Link></li>
+                <li><Link to='/Grocery'>GROCERY</Link></li>
                 <li>CART</li>
             </ul>
             <button style={{"margin": "10px", "height":"50px","width":"50px"}} 

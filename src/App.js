@@ -1,13 +1,17 @@
-import React from "react"
+import React, { lazy, Suspense } from "react"
 import ReactDOM from "react-dom/client"
 import Navbar from "./components/Navbar"
 import { Product } from "./components/Product"
-import { createBrowserRouter, RouterProvider, Outlet, useRouteError } from "react-router-dom"
-import Kid from "./components/Kid"
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
+// import Kid from "./components/Kid"
 import Men from "./components/Men"
 import Women from "./components/Women"
 import Error from "./components/Error"
 import ProductDetails from "./components/ProductDetails"
+import Skeleton from "./components/Skeleton"
+// import Grocery from "./components/Grocery"
+ const Grocery = lazy(()=> import('./components/Grocery')) // this will make another bundle for grocery component.
+ const Kid = lazy(()=> import('./components/Kid'))
 
 
 const App = () => {
@@ -28,7 +32,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: '/kid',
-                element: <Kid />
+                element: <Suspense fallback={<h1>Kid items...</h1>}><Kid/></Suspense>
             },
             {
                 path: '/Men',
@@ -41,6 +45,10 @@ const appRouter = createBrowserRouter([
             {
                 path:'/product/:productId',
                 element:<ProductDetails/>
+            },
+            {
+                path:'/Grocery',
+                element:<Suspense fallback={<Skeleton/>}><Grocery/></Suspense>
             }
         ],
         errorElement:<Error/>

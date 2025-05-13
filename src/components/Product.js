@@ -10,7 +10,7 @@ export const Product = () => {
 
     useEffect(() => {
         fetchDataFromApi();
-    }, []);
+    },[]);
 
     const fetchDataFromApi = async () => {
         const data = await fetch("https://fakestoreapi.com/products");
