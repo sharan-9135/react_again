@@ -21,3 +21,15 @@ const Items = ({ itsmychoice }) => {
 };
 
 export default Items;
+
+
+export const HOF = (Items) => {
+    return (itsmychoice) => {
+        return (
+            <div>
+                <span className="sticker">Best seller</span>
+                <Items {...itsmychoice} />
+            </div>
+        )
+    }
+}

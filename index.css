@@ -306,3 +306,12 @@
     font-size: 16px;
     letter-spacing: 1px;
 }
+
+.sticker{
+   background-color: black;
+   color: white;
+   padding-left: 1px;
+   box-shadow: slategrey;
+   border-radius: 2px;
+
+}

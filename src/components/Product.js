@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Items from "./Items"
+import Items, { HOF } from "./Items"
 import Skeleton from "./Skeleton";
 import { Link } from "react-router-dom";
 
@@ -31,6 +31,7 @@ export const Product = () => {
         setDisplayData(filtered);
     }
 
+     const HOFcomp = HOF(Items)
     return data.length === 0 ? <Skeleton/> : (
         <div>
             <div style={{ marginTop: "10px" }}>
@@ -51,7 +52,11 @@ export const Product = () => {
             
             <div className="product_container">
                 {displayData.map((product) => (
-                    <Link key={product.id} to={`/product/${product.id}`}><Items  itsmychoice={product} /></Link>
+                    <Link key={product.id} to={`/product/${product.id}`}>
+                        {
+                            product.rating.rate >=4 ? <HOFcomp itsmychoice={product}/> : <Items  itsmychoice={product} />
+                        }
+                    </Link>
                 ))}
             </div>
         </div>
