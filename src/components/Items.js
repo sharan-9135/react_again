@@ -23,7 +23,7 @@ const Items = ({ itsmychoice }) => {
 export default Items;
 
 
-export const HOF = (Items) => {
+export const HOF = (Items) => { // this is higher order component which takes component as parameter.
     return (itsmychoice) => {
         return (
             <div>
