@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Items, { HOF } from "./Items"
 import Skeleton from "./Skeleton";
 import { Link } from "react-router-dom";
+import { userContext } from "../utils/userContext";
 
 export const Product = () => {
     const [data, setData] = useState([])
     const [displayData, setDisplayData] = useState([]);
     const [searchText, setSearchText] = useState("");
-
+    const user = useContext(userContext)
     useEffect(() => {
         fetchDataFromApi();
     },[]);
@@ -49,6 +50,9 @@ export const Product = () => {
             >
                 Top Rated Product
             </button>
+            <div>
+                <input style={{marginTop :"2px"}} value={user.name} onChange={(e)=>user.setUser(e.target.value) }/>
+            </div>
             
             <div className="product_container">
                 {displayData.map((product) => (

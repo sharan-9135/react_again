@@ -7,7 +7,7 @@ const Men = ()=>{
         <div>
             <h1>Filter Option</h1>
             {
-    ['BRAND', 'Mens', 'Women', 'Kids'].map((title, index) => (
+    ['Brand', 'Mens', 'Women', 'Kids'].map((title, index) => (
         <Accordian
             key={index}
             title={title}
